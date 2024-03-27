@@ -11,6 +11,17 @@ async function requestAllCategorias(mainWindow) {
   }
 }
 
+async function requestAllClientes(mainWindow) {
+  try {
+    const response = await axios.get(`${apiUrl}/Auth/Clients`);
+    const data = response.data;
+    mainWindow.webContents.send("Nuevos-Clientes", JSON.stringify(data));
+  } catch (error) {
+    alert("Hubo un error al obtener los cliente");
+  }
+}
+
 module.exports = {
-  requestAllCategorias
+  requestAllCategorias,
+  requestAllClientes,
 };

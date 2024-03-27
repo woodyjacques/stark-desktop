@@ -1,15 +1,15 @@
 document.addEventListener("DOMContentLoaded", function () {
-    var clientesLink = document.getElementById("clientes-link");
-    if (clientesLink) {
-        clientesLink.addEventListener("click", function (event) {
-            event.preventDefault();
-            createClientes();
-        });
-    }
+  var clientesLink = document.getElementById("clientes-link");
+  if (clientesLink) {
+    clientesLink.addEventListener("click", function (event) {
+      event.preventDefault();
+      createClientes();
+    });
+  }
 });
 
 function createClientes() {
-    $content.innerHTML = `
+  $content.innerHTML = `
     <div class="p-4 mt-14">
       <div class="custom-container">
         <p class="custom-paragraph">Clientes</p>
@@ -31,7 +31,6 @@ function createClientes() {
             <tr>
               <th scope="col" class="custom-table-header">Nombre</th>
               <th scope="col" class="custom-table-header">Email</th>
-              <th scope="col" class="custom-table-header">Acción</th>
             </tr>
           </thead>
           <tbody id="clients">
@@ -43,9 +42,9 @@ function createClientes() {
     </div>
   `;
 
-    // $clients = document.querySelector("#clients");
-    // ipcRenderer.send("request-all-clients");
+  $clients = document.querySelector("#clients");
+  ipcRenderer.send("request-all-clients");
 
-    // const $buscadorCli = document.querySelector("#busquedaCliente");
-    // $buscadorCli.addEventListener("input", filtrarClientes);
+  const $buscadorCli = document.querySelector("#busquedaCliente");
+  $buscadorCli.addEventListener("input", filtrarClientes);
 }

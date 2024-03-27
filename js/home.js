@@ -2,7 +2,7 @@ const { ipcMain, BrowserWindow } = require("electron");
 const path = require("path");
 
 const { categoriaWindow, closeModalCat } = require("./cateWindow");
-const {requestAllCategorias} = require("./getDate");
+const {requestAllCategorias, requestAllClientes} = require("./getDate");
 
 let mainWindow;
 
@@ -39,6 +39,11 @@ ipcMain.on("categoria-eliminado", async () => {
 
 ipcMain.on("request-all-categories", async (event, args) => {
   await requestAllCategorias(mainWindow);
+});
+
+// para los clientes
+ipcMain.on("request-all-clients", async (event, args) => {
+  await requestAllClientes(mainWindow);
 });
 
 module.exports = { createWindow };

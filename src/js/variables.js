@@ -14,3 +14,7 @@ const $descriptionCate = document.getElementById("description-cate");
 function showCategorias() {
   ipcRenderer.send("show-categorias");
 }
+
+// Para el Cliente
+let $clients = null;
+
