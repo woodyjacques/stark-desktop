@@ -18,3 +18,21 @@ function showCategorias() {
 // Para el Cliente
 let $clients = null;
 
+// Para book
+let $books = null;
+let updateStatusBooks = false;
+let bookId = null;
+const $formBook = document.getElementById("form-book");
+const $nameBook = document.getElementById("name-book");
+const $descriptionBook = document.getElementById("description-book");
+const $priceBook = document.getElementById("price-book");
+const $linkCompraBook = document.getElementById("linkCompra-book");
+const $linkLeerBook = document.getElementById("linkLeer-book");
+const $linkEscucharBook = document.getElementById("linkEscuchar-book");
+const $linkImagenBook = document.getElementById("linkImagen-book");
+
+
+function showLibros() {
+  ipcRenderer.send("show-libros");
+}
+

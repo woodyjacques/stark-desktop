@@ -2,7 +2,8 @@ const { ipcMain, BrowserWindow } = require("electron");
 const path = require("path");
 
 const { categoriaWindow, closeModalCat } = require("./cateWindow");
-const {requestAllCategorias, requestAllClientes} = require("./getDate");
+const {bookWindow, closeModalBook } = require("./bookWindow");
+const {requestAllCategorias, requestAllClientes, requestAllBooks} = require("./getDate");
 
 let mainWindow;
 
@@ -22,7 +23,7 @@ function createWindow() {
   // mainWindow.setMenu(null);
   mainWindow.loadFile(path.join(__dirname, "../index.html"));
 
-  mainWindow.on("close", () => {closeModalCat();});
+  mainWindow.on("close", () => {closeModalCat(); closeModalBook();});
 
 }
 
@@ -44,6 +45,20 @@ ipcMain.on("request-all-categories", async (event, args) => {
 // para los clientes
 ipcMain.on("request-all-clients", async (event, args) => {
   await requestAllClientes(mainWindow);
+});
+
+// para los libros
+ipcMain.on("request-all-books", async (event, args) => {
+  await requestAllBooks(mainWindow);
+});
+
+ipcMain.on("show-libro-cerrado", async () => {
+  closeModalBook();
+  await requestAllBooks(mainWindow);
+});
+
+ipcMain.on("libro-eliminado", async () => {
+  await requestAllBooks(mainWindow);
 });
 
 module.exports = { createWindow };

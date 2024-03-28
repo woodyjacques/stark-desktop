@@ -21,7 +21,18 @@ async function requestAllClientes(mainWindow) {
   }
 }
 
+async function requestAllBooks(mainWindow) {
+  try {
+    const response = await axios.get(`${apiUrl}/Books`);
+    const data = response.data;
+    mainWindow.webContents.send("Nueva-Books", JSON.stringify(data));
+  } catch (error) {
+    alert("Hubo un error al obtener los libros");
+  }
+}
+
 module.exports = {
   requestAllCategorias,
   requestAllClientes,
+  requestAllBooks
 };
