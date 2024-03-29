@@ -23,6 +23,7 @@ function cardBooks(book) {
     return `
         <td class="custom-table-cell"><img class="imagenes" src="${book.linkImagen}" alt=""></td>
         <td class="custom-table-cell">${book.name}</td>
+        <td class="custom-table-cell">${book.categories}</td>
         <td class="custom-table-cell">${truncateDescription(
         book.description, 50)}</td>
         <td class="custom-table-cell">${book.price}</td>

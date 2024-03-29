@@ -4,6 +4,7 @@ if ($formBook) {
         e.preventDefault();
 
         const nameBook = $nameBook.value;
+        const categoriesBook = $categoriesBook.value;
         const descriptionBook = $descriptionBook.value;
         const priceBook = $priceBook.value;
         const linkCompraBook = $linkCompraBook.value;
@@ -15,6 +16,7 @@ if ($formBook) {
             enviarBook(
                 bookId,
                 nameBook,
+                categoriesBook,
                 descriptionBook,
                 priceBook,
                 linkCompraBook,
@@ -26,6 +28,7 @@ if ($formBook) {
             enviarBook(
                 bookId,
                 nameBook,
+                categoriesBook,
                 descriptionBook,
                 priceBook,
                 linkCompraBook,
@@ -38,11 +41,12 @@ if ($formBook) {
     });
 }
 
-async function enviarBook( bookId, nameBook, descriptionBook,
+async function enviarBook( bookId, nameBook, categoriesBook, descriptionBook,
     priceBook, linkCompraBook, linkLeerBook, linkEscucharBook, linkImagenBook) {
 
     const dataBooks = {
         name: String(nameBook),
+        categories:  String(categoriesBook),
         description: String(descriptionBook),
         price: String(priceBook),
         linkCompra: String(linkCompraBook),

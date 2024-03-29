@@ -24,6 +24,7 @@ let updateStatusBooks = false;
 let bookId = null;
 const $formBook = document.getElementById("form-book");
 const $nameBook = document.getElementById("name-book");
+const $categoriesBook = document.getElementById("categories-book");
 const $descriptionBook = document.getElementById("description-book");
 const $priceBook = document.getElementById("price-book");
 const $linkCompraBook = document.getElementById("linkCompra-book");

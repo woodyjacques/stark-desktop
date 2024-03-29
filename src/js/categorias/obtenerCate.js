@@ -52,14 +52,14 @@ async function obtenerCategorias() {
 }
 
 async function llenarSelectCategorias() {
-  const $select = document.getElementById('categories-art');
-  $select.innerHTML = '<option value="">Seleccione una categoría</option>'; // Limpiar opciones
+  const $select = document.getElementById('categories-book');
+  $select.innerHTML = '<option value="">Seleccione una categoría</option>'; 
 
   const categorias = await obtenerCategorias();
 
   categorias.forEach((categoria) => {
     const option = document.createElement('option');
-    option.value = categoria.id; 
+    option.value = categoria.name; 
     option.text = categoria.name; 
     $select.appendChild(option);
   });

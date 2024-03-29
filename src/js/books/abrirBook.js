@@ -32,6 +32,7 @@ function createBooks() {
             <tr>
               <th scope="col" class="custom-table-header">Imagen</th>
               <th scope="col" class="custom-table-header">Nombre</th>
+              <th scope="col" class="custom-table-header">Categoría</th>
               <th scope="col" class="custom-table-header">Descripcion</th>
               <th scope="col" class="custom-table-header">Precio</th>
               <th scope="col" class="custom-table-header">Compra</th>
