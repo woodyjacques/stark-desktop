@@ -1,8 +1,8 @@
 ipcRenderer.on("Nueva-Categoria", (e, results) => {
-    try {
-        $categorias.innerHTML = "";
-        JSON.parse(results).length === 0
-            ? ($categorias.innerHTML = `
+  try {
+    $categorias.innerHTML = "";
+    JSON.parse(results).length === 0
+      ? ($categorias.innerHTML = `
         <td colspan="8" class="custom-table-cell">
         <div class="flex justify-center items-center h-full">
           <p class="text-xl text-gray-500">
@@ -10,25 +10,25 @@ ipcRenderer.on("Nueva-Categoria", (e, results) => {
           </p>
         </div>
       </td>`)
-            : JSON.parse(results).map((cate) => {
-                $categorias.innerHTML += cardCategory(cate);
-            });
-    } catch (error) {
-        console.log(error, "error");
-        alert("Hubo un error al mostrar las categorías.");
-    }
+      : JSON.parse(results).map((cate) => {
+        $categorias.innerHTML += cardCategory(cate);
+      });
+  } catch (error) {
+    console.log(error, "error");
+    alert("Hubo un error al mostrar las categorías.");
+  }
 });
 
 function cardCategory(categoria) {
-    return `
+  return `
         <td class="custom-table-cell">${categoria.name}</td>
         <td class="custom-table-cell">${truncateDescription(
-        categoria.description, 50)}</td>
+    categoria.description, 50)}</td>
         <td class="custom-table-cell">
           <a class="custom-link" onclick="update_cate('${categoria.id
-        }')">Actualizar</a>
+    }')">Actualizar</a>
           <a class="custom-link2" onclick="delete_cate('${categoria.id
-        }')">Eliminar</a>
+    }')">Eliminar</a>
         </td>
       `;
 }
@@ -52,17 +52,20 @@ async function obtenerCategorias() {
 }
 
 async function llenarSelectCategorias() {
+
   const $select = document.getElementById('categories-book');
-  $select.innerHTML = '<option value="">Seleccione una categoría</option>'; 
+  $select.innerHTML = '<option value="">Seleccione una categoría</option>';
 
   const categorias = await obtenerCategorias();
 
   categorias.forEach((categoria) => {
     const option = document.createElement('option');
-    option.value = categoria.name; 
-    option.text = categoria.name; 
+    option.value = categoria.name;
+    option.text = categoria.name;
     $select.appendChild(option);
   });
+
+
 }
 
 llenarSelectCategorias();

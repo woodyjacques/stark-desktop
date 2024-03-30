@@ -25,11 +25,14 @@ function cardBooks(book) {
         <td class="custom-table-cell">${book.name}</td>
         <td class="custom-table-cell">${book.categories}</td>
         <td class="custom-table-cell">${truncateDescription(
-        book.description, 50)}</td>
+        book.description, 30)}</td>
         <td class="custom-table-cell">${book.price}</td>
-        <td class="custom-table-cell">${book.linkCompra}</td>
-        <td class="custom-table-cell">${book.linkLeer}</td>
-        <td class="custom-table-cell">${book.linkEscuchar}</td>
+        <td class="custom-table-cell">${truncateDescription(
+          book.linkCompra, 30)}</td>
+        <td class="custom-table-cell">${truncateDescription(
+          book.linkLeer, 30)}</td>
+        <td class="custom-table-cell">${truncateDescription(
+          book.linkEscuchar, 30)}</td>
         <td class="custom-table-cell">
           <a class="custom-link" onclick="update_book('${book.id
         }')">Actualizar</a>
