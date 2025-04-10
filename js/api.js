@@ -1,3 +1,3 @@
 require('dotenv').config();
-const apiUrl = process.env.APIURL;
+const apiUrl = 'http://localhost:4000';
 module.exports = { apiUrl };

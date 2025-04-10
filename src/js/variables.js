@@ -1,5 +1,5 @@
 const axios = require("axios");
-const apiUrl = process.env.APIURL;
+const apiUrl = 'http://localhost:4000';
 const { ipcRenderer } = require("electron");
 const { ClientRequest } = require("http");
 
